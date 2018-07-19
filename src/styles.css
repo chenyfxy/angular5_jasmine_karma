@@ -1,4 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
 tree-internal .tree .node-value:after {
-    content: unset !important;
+    content: none !important;
 }

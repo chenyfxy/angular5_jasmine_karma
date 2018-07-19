@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Http, Response } from '@angular/http';
 
@@ -15,11 +15,9 @@ import { map } from 'rxjs/operators';
 export class PersonComponent implements OnInit {
   @Output() loggedIn = new EventEmitter<User>();
   form: FormGroup;
-  results: SearchItem[];
   statusVal: any;
 
   constructor(private fb: FormBuilder, public http: Http) {
-    this.results = [];
   }
 
   ngOnInit() {
@@ -60,10 +58,26 @@ export class User {
   }
 }
 
-export class SearchItem {
-  constructor(public name: string,
-              public artist: string,
-              public thumbnail: string,
-              public artistId: string) {
+////////// Services ///////////////
+@Injectable()
+export class ValueService {
+  protected value = 'real value';
+
+  getValue() { return this.value; }
+  setValue(value: string) { this.value = value; }
+}
+
+@Injectable()
+export class MasterService {
+  count = 10;
+
+  constructor(private valueService: ValueService) { }
+  getValue() { return this.valueService.getValue(); }
+
+  getMultiValue() {
+    for (let i = 0; i < this.count; i++) {
+      this.getValue();
+    }
   }
 }
+
