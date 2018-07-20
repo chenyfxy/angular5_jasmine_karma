@@ -26,6 +26,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## Angular component
+
+'ng2-tree' on the tree.component.ts.
+'ng2-handsontable' on the grid.component.ts.
+
 ## Testing example
 https://angular.cn/guide/testing, https://codecraft.tv/courses/angular/unit-testing
 
